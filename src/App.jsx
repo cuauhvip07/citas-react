@@ -7,7 +7,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <h1>Hola desde udemy aqui se cambia todo </h1>
+    <h1>Hola desde udemy aqui se cambia todo. </h1>
   )
 }
 
