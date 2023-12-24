@@ -1,6 +1,6 @@
 import { useState,useEffect } from "react";
 
-function Formulario(){
+function Formulario({pacientes,setPacientes}){
 
     const [nombre,setNombre] = useState(''); /* Hook -> Guardar y modificar valores */
     const [apellido,setApellido] = useState(''); /* Hook -> Guardar y modificar valores */
@@ -18,6 +18,24 @@ function Formulario(){
             return
         }
         setError(false)
+        
+        // Objeto de paciente
+        const objetoPaciente = {
+            nombre,
+            apellido,
+            email,
+            fecha,
+            sintomas
+        }
+        
+        setPacientes([...pacientes,objetoPaciente])
+
+        // Reiniciar formulario 
+        setNombre('');
+        setApellido('')
+        setEmail('')
+        setFecha('')
+        setSintomas('')
     }
 
     return(
