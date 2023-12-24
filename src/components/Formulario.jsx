@@ -1,6 +1,9 @@
-
+import { useState,useEffect } from "react";
 
 function Formulario(){
+
+    const [nombre,setNombre] = useState(''); /* Hook -> Guardar y modificar valores */
+    
 
     return(
         <div className="md:w-1/2 lg:w-2/5">
@@ -10,7 +13,12 @@ function Formulario(){
             <form className="bg-white shadow-md rounded-lg py-10 px-5 mb-10">
                 <div className="mb-5">
                     <label className="block text-gray-700 uppercase font-bold" htmlFor="paciente">Nombre:</label>
-                    <input className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" type="text" placeholder="Ingrese su nombre" id="paciente"/>
+                    <input 
+                    className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" type="text" 
+                    placeholder="Ingrese su nombre" 
+                    id="paciente" 
+                    value={nombre}
+                    onChange={(e) => setNombre(e.target.value)} /*Cada vez que haya un cambio manda una alerta*/   />
                 </div>
 
                 <div className="mb-5">
