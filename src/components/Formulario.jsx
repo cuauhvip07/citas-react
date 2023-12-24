@@ -3,14 +3,19 @@ import { useState,useEffect } from "react";
 function Formulario(){
 
     const [nombre,setNombre] = useState(''); /* Hook -> Guardar y modificar valores */
-    
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log('Enviando formulario')
+    }
 
     return(
         <div className="md:w-1/2 lg:w-2/5">
             <h1 className="font-black text-3xl text-center">Seguimiento Pacientes</h1>
             <p className="text-lg mt-5 text-center mb-10">Añade Pacientes y {''}<span className="text-indigo-600 font-bold">Administralos</span></p>
 
-            <form className="bg-white shadow-md rounded-lg py-10 px-5 mb-10">
+            <form 
+            onSubmit={handleSubmit}
+            className="bg-white shadow-md rounded-lg py-10 px-5 mb-10">
                 <div className="mb-5">
                     <label className="block text-gray-700 uppercase font-bold" htmlFor="paciente">Nombre:</label>
                     <input 
