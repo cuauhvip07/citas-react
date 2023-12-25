@@ -10,6 +10,12 @@ function Formulario({pacientes,setPacientes}){
     const [sintomas,setSintomas] = useState(''); /* Hook -> Guardar y modificar valores */
     const [error,setError] = useState(false);
 
+    const generaId = () => {
+        const random = Math.random().toString(36).substring(2);
+        const fecha = Date.now()
+        return random + fecha;
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault()
 
@@ -26,7 +32,8 @@ function Formulario({pacientes,setPacientes}){
             apellido,
             email,
             fecha,
-            sintomas
+            sintomas,
+            id: generaId()
         }
         
         setPacientes([...pacientes,objetoPaciente])
