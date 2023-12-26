@@ -1,6 +1,6 @@
 
 
-const Paciente = ({paciente}) => {
+const Paciente = ({paciente,setPaciente}) => {
 
     const {nombre,apellido,email,fecha,sintomas} = paciente
     return (
@@ -14,6 +14,15 @@ const Paciente = ({paciente}) => {
             <p className="font-bold mb-3 text-gray-700 uppercase">Fecha:{' '}<span className="font-normal normal-case">{fecha}</span></p>
 
             <p className="font-bold mb-3 text-gray-700 uppercase">Sintomas:{' '}<span className="font-normal normal-case">{sintomas}</span></p>
+
+            <div className="flex justify-around mt-10">
+                <button 
+                className="py-2 px-10 bg-indigo-600 hover:bg-indigo-700 text-white font-bold uppercase rounded-lg" 
+                type="button"
+                onClick={() => setPaciente(paciente)}
+                >Editar</button>
+                <button className="py-2 px-10 bg-red-600 hover:bg-red-700 text-white font-bold uppercase rounded-lg" type="button">Eliminar</button>
+            </div>
         </div>
     )
 }
