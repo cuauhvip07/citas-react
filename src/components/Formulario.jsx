@@ -1,14 +1,29 @@
 import Error from "./Error";
 import { useState,useEffect } from "react";
 
-function Formulario({pacientes,setPacientes}){
+function Formulario({pacientes,setPacientes,paciente}){
 
     const [nombre,setNombre] = useState(''); /* Hook -> Guardar y modificar valores */
     const [apellido,setApellido] = useState(''); /* Hook -> Guardar y modificar valores */
     const [email,setEmail] = useState(''); /* Hook -> Guardar y modificar valores */
     const [fecha,setFecha] = useState(''); /* Hook -> Guardar y modificar valores */
-    const [sintomas,setSintomas] = useState(''); /* Hook -> Guardar y modificar valores */
+    const [sintomas,setSintomas] = useState('');
     const [error,setError] = useState(false);
+
+    useEffect(() => {
+        const {nombre,apellido,email,fecha,sintomas} = paciente
+        if(Object.keys(paciente).length > 0){
+            setNombre(nombre)
+            setApellido(apellido)
+            setEmail(email)
+            setFecha(fecha)
+            setSintomas(sintomas)
+            
+        }
+        else{
+            console.log('No hay nada')
+        }
+    },[paciente])
 
     const generaId = () => {
         const random = Math.random().toString(36).substring(2);
